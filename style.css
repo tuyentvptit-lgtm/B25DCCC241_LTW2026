@@ -1,0 +1,111 @@
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --muted: #64748b;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --warning: #d97706;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.app { max-width: 900px; margin: 0 auto; padding: 32px 16px; }
+
+.app-title { font-size: 26px; text-align: center; margin-bottom: 24px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+.card h2 { font-size: 17px; margin-bottom: 14px; }
+
+/* ---------- Thống kê ---------- */
+.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 20px; }
+.stat-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+.stat-label { color: var(--muted); font-size: 14px; }
+.stat-value { font-size: 28px; font-weight: 700; color: var(--primary); }
+
+/* ---------- Form ---------- */
+.form { display: grid; grid-template-columns: 2fr 1fr 1.5fr auto; gap: 12px; align-items: end; }
+.form-group { display: flex; flex-direction: column; gap: 4px; }
+.form-group label { font-size: 13px; font-weight: 600; color: var(--muted); }
+.form-group input {
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+.form-group input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15); }
+
+.error-msg {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: var(--danger);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* ---------- Nút ---------- */
+.btn {
+  padding: 9px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-danger { background: #fee2e2; color: var(--danger); padding: 6px 12px; }
+.btn-danger:hover { background: #fecaca; }
+
+/* ---------- Bộ lọc ---------- */
+.filters { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.btn-filter { background: #fff; color: var(--text); border: 1px solid var(--border); }
+.btn-filter:hover { border-color: var(--primary); color: var(--primary); }
+.btn-filter.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+/* ---------- Bảng ---------- */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border); font-size: 14px; }
+th { background: #f8fafc; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: 0.03em; }
+tbody tr:hover { background: #f8fafc; }
+.empty { text-align: center; color: var(--muted); padding: 24px; }
+
+/* ---------- Nhãn điểm ---------- */
+.badge { padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+.badge-good { background: #dcfce7; color: var(--success); }
+.badge-normal { background: #fef3c7; color: var(--warning); }
+.badge-fail { background: #fee2e2; color: var(--danger); }
+
+@media (max-width: 700px) {
+  .form { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr; }
+}
